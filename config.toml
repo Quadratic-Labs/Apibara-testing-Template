@@ -1,4 +1,5 @@
 [testing]
+indexer_id = "apibara-testing-template"
 starknet_network_url = "http://localhost:5051"
 apibara_server_url = "localhost:7172"
 mongo_url = "mongodb://apibara:apibara@localhost:27018"

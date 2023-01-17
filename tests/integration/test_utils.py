@@ -6,14 +6,14 @@ import backoff
 import requests
 from apibara import IndexerRunner, Info, NewEvents
 from apibara.indexer import IndexerRunnerConfiguration
-from apibara.model import BlockHeader, EventFilter, StarkNetEvent
+from apibara.model import EventFilter
 from grpc.aio import AioRpcError
 from grpc_requests.aio import AsyncClient
 from pymongo.database import Database
 from python_on_whales import Container, DockerClient
 from starknet_py.net.gateway_client import GatewayClient
 
-from ..conftest import config
+from .. import config
 
 logger = logging.getLogger("tests")
 

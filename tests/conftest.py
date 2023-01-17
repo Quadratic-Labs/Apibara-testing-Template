@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from multiprocessing import Process
 from pathlib import Path
-from typing import Any, Callable, Optional
+from typing import Any, Callable
 
 import mongomock
 import pytest
@@ -23,20 +23,14 @@ from starknet_py.net.gateway_client import GatewayClient
 from starknet_py.net.models import StarknetChainId
 from starknet_py.net.signer.stark_curve_signer import KeyPair
 
-from dynaconf import Dynaconf
-
-config = Dynaconf(
-    settings_files=["config.toml"], environments=True, envvar_prefix="DAO"
-)
-
-
+from . import config
 from .integration.test_utils import (
     default_new_events_handler_test,
     docker,
+    run_indexer,
     wait_for_apibara,
     wait_for_devnet,
     wait_for_docker_services,
-    run_indexer,
 )
 
 
