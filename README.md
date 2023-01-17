@@ -5,7 +5,7 @@
 
 - [About](#about)
 - [Story](#story)
-- [Install](#install)
+- [Getting Started](#getting-started)
 
 </details>
 
