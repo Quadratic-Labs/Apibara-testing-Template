@@ -1,0 +1,8 @@
+[testing]
+starknet_network_url = "http://localhost:5051"
+apibara_server_url = "localhost:7172"
+mongo_url = "mongodb://apibara:apibara@localhost:27018"
+graphql_url = "localhost:8083"
+# seconds, default value for max_time param for backoff decorators
+default_max_backoff_time = 30
+wait_for_indexer_backoff_time = 10

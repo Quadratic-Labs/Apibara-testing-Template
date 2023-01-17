@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  mongo-test:
+    image: mongo:6.0.2
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: apibara
+      MONGO_INITDB_ROOT_PASSWORD: apibara
+    ports:
+      - 27018:27017
+
+  mongo-express-test:
+    image: mongo-express:1.0.0-alpha.4
+    restart: unless-stopped
+    ports:
+      - 8082:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: "mongo-test"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: apibara
+      ME_CONFIG_MONGODB_ADMINPASSWORD: apibara
+    depends_on:
+      - mongo-test
+
+  apibara-test:
+    image: apibara/starknet:89301f7f55ed0c79e83b5fad172c1fb7107505a5
+    restart: unless-stopped
+    command: apibara-starknet start --custom-network http://devnet-test:5050 --poll-interval 500
+    ports:
+      - 7172:7171
+    environment:
+      RUST_LOG: "apibara=debug"
+      RUST_BACKTRACE: 1
+    depends_on:
+      - devnet-test
+
+  devnet-test:
+    image: shardlabs/starknet-devnet:0.3.3
+    restart: unless-stopped
+    command: --seed 5
+    ports:
+      - 5051:5050
