@@ -4,17 +4,17 @@
 <summary>Table of Contents</summary>
 
 - [About](#about)
-- [Story](#story)
 - [Getting Started](#getting-started)
 
 </details>
 
 # About
-All the services and configurations you need to test your Apibara indexer
 
-# Story
-While testing our Apibara indexer, we built an environment with all the needed services and configurations (see below), in addition to all the pytest fixtures and options to run them, tear them down, wait for them to be ready .... We realized this is a common issue for all Apibara indexers, our environment is generic and could be used for other use-cases that's why we're open sourcing it for the Web3 community
+>Set of services, configurations & pytest features to test an Apibara indexer
 
+Our [Moloch on Starknet indexer](https://github.com/Quadratic-Labs/Moloch-on-Starknet-indexer) is based on [Apibara python indexer Template](https://github.com/apibara/python-indexer-template), which enables to quickly start indexing smart contracts events with [Apibara](https://github.com/apibara/apibara).
+
+In the course of the testing phase of our Apibara indexer, we built an environment with all the needed services and configurations (see below), also including all the pytest features to manage the tests.
 
 ```
 Indexer -> Apibara Node -> Devnet
